@@ -7,6 +7,12 @@
 - BiomedCLIP
 - MedCLIP
 - PubMedCLIP
+## Selected disease
+- 6 common diseases
+- `preprocessing`: `datasets` change to the disease name (no finding -> disease name)
+- `config`: previously ['diseased','normal'] -> ['normal',disease name]
+    - 'no finding' is 1
+    - disease_name is 1
 ## How to evaluate model utility and fairness
 1. Go to `metriceval` folder
 2. Go to disease folder,e.g. `no_finding`

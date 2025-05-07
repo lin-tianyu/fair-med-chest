@@ -14,7 +14,7 @@
   - `config`: ['diseased','normal'] -> ['normal',disease name]
     - 'no finding' is 1
     - disease_name is 1
-## How to evaluate model utility and fairness
+## How to evaluate model utility and fairness using demo webpage
 1. Go to `metriceval` folder
 2. Go to disease folder,e.g. `no_finding`
 3. Organize your pkl files and metata files as
@@ -41,7 +41,7 @@
     ├── predictions_PubMedCLIP.pkl
     └── test_meta_FM.csv
 ```
-4. Run metric_evaluation.ipynb
+4. Run python gradio/gradio_FM.py
 ## Reference
 ```
 @article{jin2024fairmedfm,

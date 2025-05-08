@@ -1,3 +1,13 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4f31a7a5-2e2a-4a9d-9e4f-a0ccb933c222" width="150" />
+</p>
+
+<h1 align="center">Benchmarking demographic fairness for models in radiology</h1>
+<h3 align="center">Yike Guo, Chengjie Lin, Tianyu Lin</h3>
+<h4 align="center">Johns Hopkins University</h4>
+
+> This is the course project repo of **EN.580.464.01 : Advanced Data Science for Biomedical Engineering**
+
 ## Selected dataset
 - MIMIC-CXR
 - CheXpert

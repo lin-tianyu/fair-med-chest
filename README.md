@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4f31a7a5-2e2a-4a9d-9e4f-a0ccb933c222" width="150" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/d8585583-3f0b-4e0b-9b4e-e202ab3bf639" />
+
 </p>
 
 <h1 align="center">Benchmarking demographic fairness for models in radiology</h1>

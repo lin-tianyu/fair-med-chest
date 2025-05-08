@@ -286,13 +286,13 @@ def create_interface():
                     # Right panel
                     with gr.Column(scale=2):
                         with gr.Accordion("Fairness Metrics", open=True):
-                            fairness_plot = gr.Plot()
+                            fairness_plot = gr.Plot(format="png")
                         
                         with gr.Accordion("Subgroup Comparison", open=True):
-                            subgroup_plot = gr.Plot()
+                            subgroup_plot = gr.Plot(format="png")
                             
                         with gr.Accordion("Utility-Fairness Tradeoff", open=True):
-                            tradeoff_plot = gr.Plot()
+                            tradeoff_plot = gr.Plot(format="png")
             
             # Tab 2: Model-based Analysis (Datasets comparison)
             with gr.TabItem("Model Analysis"):
@@ -326,13 +326,13 @@ def create_interface():
                     # Right panel
                     with gr.Column(scale=2):
                         with gr.Accordion("Fairness Metrics", open=True):
-                            model_fairness_plot = gr.Plot()
+                            model_fairness_plot = gr.Plot(format="png")
                         
                         with gr.Accordion("Subgroup Comparison", open=True):
-                            model_subgroup_plot = gr.Plot()
+                            model_subgroup_plot = gr.Plot(format="png")
                             
                         with gr.Accordion("Utility-Fairness Tradeoff", open=True):
-                            model_tradeoff_plot = gr.Plot()
+                            model_tradeoff_plot = gr.Plot(format="png")
         
         # Event handlers for Dataset Analysis tab
         def analyze_dataset(dataset, sensitive_attr, age_threshold):

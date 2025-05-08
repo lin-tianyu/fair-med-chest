@@ -292,6 +292,7 @@ def load_model_predictions(datapath: str, model_name: str) -> Tuple[np.ndarray, 
 
 def load_dataset_metadata(dataset: str) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """Load metadata for a dataset"""
+    # base_path = "/Users/carol/Desktop/DS_BME/project/fair-med-chest/metriceval/no_finding"
     base_path = "/Users/jerrylcj/python_proj/fair-med-chest/metriceval/no_finding"
     
     if dataset == "CXP":
@@ -325,6 +326,7 @@ def load_dataset_metadata(dataset: str) -> Tuple[np.ndarray, np.ndarray, np.ndar
 # Main calculation functions
 def calculate_dataset_results(dataset: str, sensitive_attr: str = "sex", age_threshold: int = 65) -> pd.DataFrame:
     """Calculate fairness metrics for all models on a specific dataset"""
+    # datapath = f"/Users/carol/Desktop/DS_BME/project/fair-med-chest/metriceval/no_finding/{dataset}"
     datapath = f"/Users/jerrylcj/python_proj/fair-med-chest/metriceval/no_finding/{dataset}"
     models = ["CLIP", "BiomedCLIP", "MedCLIP", "PubMedCLIP"]
     
@@ -404,6 +406,7 @@ def calculate_model_results(model: str, sensitive_attr: str = "sex", age_thresho
     results = {}
     
     for dataset in datasets:
+        # datapath = f"/Users/carol/Desktop/DS_BME/project/fair-med-chest/metriceval/no_finding/{dataset}"
         datapath = f"/Users/jerrylcj/python_proj/fair-med-chest/metriceval/no_finding/{dataset}"
         
         # Load metadata

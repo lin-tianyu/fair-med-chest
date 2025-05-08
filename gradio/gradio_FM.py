@@ -16,7 +16,7 @@ from metric_eval import calculate_dataset_results, calculate_model_results
 MODELS = ["CLIP", "BiomedCLIP", "MedCLIP", "PubMedCLIP"]
 DATASETS = ["CXP", "MIMIC", "NIH"]
 SENSITIVE_ATTRS = ["sex", "age"]
-FAIRNESS_METRICS = ["ae-gap", "ece-gap", "eod", "eo", "risk-gap"]
+FAIRNESS_METRICS = ["eo", "eod", "ae-gap", "ece-gap", "risk-gap"]
 UTILITY_METRICS = ["overall-auc", "overall-acc"]
 
 # Plot generation functions
@@ -45,7 +45,10 @@ def generate_fairness_bar_plot(results_df, mode="dataset"):
             bar_colors = plt.cm.tab10(np.arange(len(labels)) % 10)
         
         bars = ax.bar(labels, values, color=bar_colors)
-        ax.set_title(f"{metric}")
+        if metric == "risk-gap":
+            ax.set_title("Risk-Disparity")
+        else:
+            ax.set_title(f"{metric.upper()}")
         
         if len(values) > 0:
             ax.set_ylim(0, min(1, max(values) * 1.5))
@@ -116,8 +119,8 @@ def generate_subgroup_comparison(results_df, sensitive_attr="sex", mode="dataset
             ax.set_xlim(mn, mx)
             ax.set_ylim(mn, mx)
             
-            ax.set_xlabel(f"{x_group} {metric}")
-            ax.set_ylabel(f"{y_group} {metric}")
+            ax.set_xlabel(f"{x_group.upper()} {metric.upper()}")
+            ax.set_ylabel(f"{y_group.upper()} {metric.upper()}")
             ax.set_title(f"{metric.upper()} Comparison")
         
         except Exception:
@@ -178,7 +181,7 @@ def generate_tradeoff_plots(results_df, mode="dataset"):
         
         if len(x)==0 or len(y)==0:
             ax.text(0.5, 0.5, "No valid data points", ha='center', va='center')
-            ax.set_title(f"Utility vs. {metric}")
+            ax.set_title(f"Utility vs. {metric.upper()}")
             continue
         
         # Set the limits slightly expanded
@@ -207,7 +210,7 @@ def generate_tradeoff_plots(results_df, mode="dataset"):
         
         # Plot the gradient background
         gradient = ax.imshow(Z, extent=[x_min, x_max, y_min, y_max], 
-                           aspect='auto', alpha=0.2, cmap='Blues_r',
+                           aspect='auto', alpha=0.3, cmap='Blues_r',
                            origin='lower', zorder=0)
         
         # Add a small note explaining the gradient
@@ -223,9 +226,15 @@ def generate_tradeoff_plots(results_df, mode="dataset"):
                         xytext=(5,5), textcoords='offset points', 
                         zorder=6)
         
-        ax.set_xlabel(metric)
+        if metric == "risk-gap":
+            ax.set_xlabel("Risk-Disparity")
+        else:
+            ax.set_xlabel(metric.upper())
         ax.set_ylabel("AUC (Utility)")
-        ax.set_title(f"Utility vs. {metric}")
+        if metric == "risk-gap":
+            ax.set_title("Utility vs. Risk-Disparity")
+        else:
+            ax.set_title(f"Utility vs. {metric.upper()}")
         ax.grid(True, linestyle='--', alpha=0.4, zorder=1)
     
     # legend cell

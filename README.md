@@ -52,6 +52,7 @@
     ├── predictions_PubMedCLIP.pkl
     └── test_meta_FM.csv
 ```
+You can also download these pickle files and demographic files here: https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/yguo122_jh_edu/EubgSBOjFRJClK-FpywDFdwB3r4oFAcc3leBpgqOXOiUFw?e=Pk63Rs
 4. Run python gradio/gradio_FM.py
 ## Reference
 ```
